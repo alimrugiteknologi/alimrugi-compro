@@ -43,7 +43,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 dark:text-blue-100 mb-6 leading-tight"
           >
-            Transformasi Bisnis Anda ke Dunia Digital Bersama kami!
+            Transformasi Bisnis Anda ke Dunia Digital!
           </motion.h1>
           
           {/* Subheadline */}
@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10"
           >
-            Solusi Pembuatan Website, Aplikasi, dan Digitalisasi yang Inovatif. dengan Cepat, dan Terjangkau.
+            Solusi Digitalisasi bisnis yang Inovatif, Cepat, dan Terjangkau.
           </motion.p>
           
           {/* CTA Buttons */}
