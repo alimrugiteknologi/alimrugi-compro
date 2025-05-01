@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://alimrugi.id",
+    url: "https://alimtech.id",
     siteName: "PT ALIM RUGI TEKNOLOGI",
     title: "PT ALIM RUGI TEKNOLOGI - Solusi Digital Terpercaya di Indonesia",
     description: "Transformasi digital bisnis Anda dengan solusi website, aplikasi mobile, dan digitalisasi yang inovatif dari PT ALIM RUGI TEKNOLOGI.",
@@ -96,8 +96,8 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "PT ALIM RUGI TEKNOLOGI",
-            url: "https://alimrugi.id",
-            logo: "https://alimrugi.id/main-logo.webp",
+            url: "https://alimtech.id",
+            logo: "https://alimtech.id/main-logo.webp",
             description: "Mitra digital terpercaya untuk solusi website, aplikasi mobile, dan digitalisasi bisnis.",
             address: {
               "@type": "PostalAddress",

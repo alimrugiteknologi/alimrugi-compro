@@ -43,23 +43,23 @@ export default function Header() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "PT ALIM RUGI TEKNOLOGI",
-            "url": "https://alimrugi.id",
-            "logo": "https://alimrugi.id/main-logo.webp",
+            "url": "https://alimtech.id",
+            "logo": "https://alimtech.id/main-logo.webp",
             "description": "Mitra digital terpercaya yang menyediakan solusi website, aplikasi mobile, dan digitalisasi bisnis yang inovatif.",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Gedung Mitra Digital, Jl. Teknologi Baru No. 123",
-              "addressLocality": "Jakarta Selatan",
-              "addressRegion": "DKI Jakarta",
-              "postalCode": "12930",
+              "streetAddress": "KP. Karamat RT 003 RW 010, Desa Ciherang, Kecamatan Cianjur, Kabupaten Cianjur, Provinsi Jawa Barat.",
+              "addressLocality": "Cianjur",
+              "addressRegion": "Jawa Barat",
+              "postalCode": "43211",
               "addressCountry": "ID"
             },
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+62-21-1234-5678",
+              "telephone": "+62822-1698-75418",
               "contactType": "customer service",
-              "email": "info@alimrugi.id",
-              "availableLanguage": ["Indonesian", "English"]
+              "email": "alimrugiteknologi@gmail.com",
+              "availableLanguage": ["Indonesian"]
             },
             "sameAs": [
               "https://facebook.com/alimrugi",

@@ -266,11 +266,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@alimrugi.id"
+                  href="mailto:alimrugiteknologi@gmail.com"
                   className="hover:text-white transition-colors"
-                  aria-label="Kirim email ke PT ALIM RUGI TEKNOLOGI di alamat info@alimrugi.id"
+                  aria-label="Kirim email ke PT ALIM RUGI TEKNOLOGI di alamat alimrugiteknologi@gmail.com"
                 >
-                  info@alimrugi.id
+                  alimrugiteknologi@gmail.com
                 </a>
               </li>
             </ul>

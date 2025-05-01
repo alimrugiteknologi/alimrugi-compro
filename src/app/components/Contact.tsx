@@ -157,7 +157,7 @@ ${formData.message}`;
                   "@type": "ContactPoint",
                   telephone: "+62-21-1234-5678",
                   contactType: "customer service",
-                  email: "info@alimrugi.id",
+                  email: "alimrugiteknologi@gmail.com",
                   availableLanguage: ["Indonesian", "English"],
                 },
                 {

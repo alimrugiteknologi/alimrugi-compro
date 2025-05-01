@@ -16,7 +16,7 @@ export default function Hero() {
             "@type": "WebPage",
             "name": "PT ALIM RUGI TEKNOLOGI - Solusi Digital Terpercaya",
             "description": "Transformasi digital bisnis Anda dengan solusi website, aplikasi mobile, dan digitalisasi yang inovatif.",
-            "url": "https://alimrugi.id",
+            "url": "https://alimtech.id",
             "mainEntity": {
               "@type": "Organization",
               "name": "PT ALIM RUGI TEKNOLOGI",
