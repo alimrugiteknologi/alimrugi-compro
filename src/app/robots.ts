@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://alimrugi.id/sitemap.xml',
+    sitemap: 'https://alimtech.id/sitemap.xml',
   };
 } 
