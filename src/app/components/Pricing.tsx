@@ -96,18 +96,19 @@ export default function Pricing() {
             </span>
             <button 
               onClick={() => setYearlyBilling(!yearlyBilling)}
-              className="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none"
+              className="relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
               role="switch"
               aria-checked={yearlyBilling}
+              aria-label={yearlyBilling ? "Switch to monthly billing" : "Switch to yearly billing"}
             >
               <span 
-                className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                  yearlyBilling ? 'translate-x-5' : 'translate-x-0'
+                className={`pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                  yearlyBilling ? 'translate-x-6' : 'translate-x-0'
                 }`} 
               />
             </button>
             <span className={`ml-3 ${yearlyBilling ? 'text-gray-900 dark:text-white font-medium' : 'text-gray-500'}`}>
-              Tahunan <span className="text-green-600 text-xs font-semibold">Save 20%</span>
+              Tahunan <span className="text-green-800 dark:text-green-400 text-xs font-semibold">Hemat 20%</span>
             </span>
           </div>
         </div>
@@ -125,7 +126,7 @@ export default function Pricing() {
             >
               {plan.highlight && (
                 <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center text-sm py-1 font-medium">
-                  Most Popular
+                  Paling Populer
                 </div>
               )}
               

@@ -12,10 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "PT ALIM RUGI TEKNOLOGI - Solusi Digital Terpercaya di Indonesia",
-    template: "%s | PT ALIM RUGI TEKNOLOGI",
-  },
+  title: "PT ALIM RUGI TEKNOLOGI - Solusi Digital Terpercaya di Indonesia",
   description: "PT ALIM RUGI TEKNOLOGI adalah mitra digital terpercaya yang menyediakan solusi website, aplikasi mobile, dan digitalisasi bisnis yang inovatif, cepat, dan terjangkau untuk membantu transformasi digital bisnis Anda.",
   keywords: "alim rugi teknologi, web development, mobile app, desain grafis, AI, pelatihan IT, digitalisasi bisnis, solusi digital, transformasi digital, jasa pembuatan website, jasa pembuatan aplikasi, konsultan IT, pelatihan teknologi",
   authors: [{ name: "PT ALIM RUGI TEKNOLOGI" }],
@@ -60,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "hyiP_sgoHLTxmoLU6iOvPBX5YMa58fqObynb4NbbdF0",
+    google: "google-site-verification-code",
   },
 };
 
@@ -78,7 +75,7 @@ export default function RootLayout({
 
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-8S01B8MWK9"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -86,7 +83,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-8S01B8MWK9');
+            gtag('config', 'G-XXXXXXXXXX');
           `}
         </Script>
 

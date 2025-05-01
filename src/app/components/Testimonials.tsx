@@ -154,16 +154,20 @@ export default function Testimonials() {
               ))}
             </div>
             
-            <div className="flex justify-center mt-6 gap-2">
+            <div className="flex justify-center mt-8 gap-4">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setActive(index)}
-                  className={`h-3 w-3 rounded-full transition-all ${
-                    active === index ? "bg-blue-600 w-6" : "bg-gray-300 dark:bg-gray-700"
+                  className={`h-8 w-8 flex items-center justify-center p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    active === index 
+                      ? "bg-blue-600 text-white" 
+                      : "bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
                   }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
+                  aria-label={`Lihat testimoni ${index + 1}`}
+                >
+                  <span className="text-xs font-medium">{index + 1}</span>
+                </button>
               ))}
             </div>
           </div>

@@ -91,6 +91,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Kunjungi halaman Facebook PT ALIM RUGI TEKNOLOGI"
               >
                 {socialIcons.facebook()}
               </a>
@@ -99,6 +100,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Kunjungi Twitter PT ALIM RUGI TEKNOLOGI"
               >
                 {socialIcons.twitter()}
               </a>
@@ -107,6 +109,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Kunjungi Instagram PT ALIM RUGI TEKNOLOGI"
               >
                 {socialIcons.instagram()}
               </a>
@@ -115,6 +118,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Kunjungi LinkedIn PT ALIM RUGI TEKNOLOGI"
               >
                 {socialIcons.linkedin()}
               </a>
@@ -123,6 +127,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Kunjungi kanal YouTube PT ALIM RUGI TEKNOLOGI"
               >
                 {socialIcons.youtube()}
               </a>
@@ -137,6 +142,7 @@ export default function Footer() {
                 <a
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Kembali ke beranda"
                 >
                   Beranda
                 </a>
@@ -145,6 +151,7 @@ export default function Footer() {
                 <a
                   href="#about"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Tentang PT ALIM RUGI TEKNOLOGI"
                 >
                   Tentang Kami
                 </a>
@@ -153,6 +160,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Layanan yang kami tawarkan"
                 >
                   Layanan
                 </a>
@@ -161,6 +169,7 @@ export default function Footer() {
                 <a
                   href="#portfolio"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Portofolio proyek kami"
                 >
                   Portofolio
                 </a>
@@ -169,6 +178,7 @@ export default function Footer() {
                 <a
                   href="#pricing"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Daftar harga layanan"
                 >
                   Harga
                 </a>
@@ -177,6 +187,7 @@ export default function Footer() {
                 <a
                   href="#contact"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Hubungi kami"
                 >
                   Kontak
                 </a>
@@ -192,6 +203,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Layanan pembuatan website"
                 >
                   Website Development
                 </a>
@@ -200,6 +212,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Layanan pembuatan aplikasi mobile"
                 >
                   Mobile App Development
                 </a>
@@ -208,6 +221,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Layanan desain grafis"
                 >
                   Graphic Design
                 </a>
@@ -216,6 +230,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Solusi dan teknologi AI"
                 >
                   AI Solutions
                 </a>
@@ -224,6 +239,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
+                  aria-label="Pelatihan IT profesional"
                 >
                   IT Training
                 </a>
@@ -243,6 +259,7 @@ export default function Footer() {
                 <a
                   href="tel:+6282216987541"
                   className="hover:text-white transition-colors"
+                  aria-label="Telepon PT ALIM RUGI TEKNOLOGI di nomor +62 822-1698-7541"
                 >
                   +62 822-1698-7541
                 </a>
@@ -251,6 +268,7 @@ export default function Footer() {
                 <a
                   href="mailto:info@alimrugi.id"
                   className="hover:text-white transition-colors"
+                  aria-label="Kirim email ke PT ALIM RUGI TEKNOLOGI di alamat info@alimrugi.id"
                 >
                   info@alimrugi.id
                 </a>
@@ -266,16 +284,18 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6">
               <a
-                href="#"
+                href="#terms"
                 className="text-sm text-gray-400 hover:text-white transition-colors"
+                aria-label="Baca Syarat dan Ketentuan"
               >
-                Terms of Service
+                Syarat dan Ketentuan
               </a>
               <a
-                href="#"
+                href="#privacy"
                 className="text-sm text-gray-400 hover:text-white transition-colors"
+                aria-label="Baca Kebijakan Privasi"
               >
-                Privacy Policy
+                Kebijakan Privasi
               </a>
             </div>
           </div>
