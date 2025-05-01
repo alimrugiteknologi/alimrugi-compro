@@ -2,50 +2,50 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Script from "next/script";
 
-const projects = [
+const portfolios = [
   {
     id: 1,
     title: "E-Commerce Platform",
     category: "Website",
-    image: "/portfolio-1.jpg",
-    description: "Platform e-commerce modern dengan integrasi payment gateway dan dashboard admin komprehensif."
+    image: "https://picsum.photos/seed/ecommerce/600/400",
+    description: "Platform e-commerce modern dengan fitur pembayaran terintegrasi dan manajemen inventori."
   },
   {
     id: 2,
-    title: "Aplikasi Manajemen Inventory",
+    title: "Mobile Banking App",
     category: "Mobile App",
-    image: "/portfolio-2.jpg",
-    description: "Aplikasi mobile untuk manajemen inventory dengan fitur barcode scanning dan real-time analytics."
+    image: "https://picsum.photos/seed/banking/600/400",
+    description: "Aplikasi mobile banking dengan fitur keamanan tingkat tinggi dan antarmuka yang intuitif."
   },
   {
     id: 3,
-    title: "Company Branding",
-    category: "Design",
-    image: "/portfolio-3.jpg",
-    description: "Redesign brand identity lengkap termasuk logo, guideline, dan marketing materials."
+    title: "Corporate Website",
+    category: "Website",
+    image: "https://picsum.photos/seed/corporate/600/400",
+    description: "Website perusahaan dengan desain modern dan optimasi SEO untuk meningkatkan visibilitas online."
   },
   {
     id: 4,
-    title: "AI-Based Recommendation System",
-    category: "AI",
-    image: "/portfolio-4.jpg",
-    description: "Sistem rekomendasi berbasis AI untuk platform content yang meningkatkan engagement pengguna."
+    title: "Food Delivery App",
+    category: "Mobile App",
+    image: "https://picsum.photos/seed/food/600/400",
+    description: "Aplikasi pengiriman makanan dengan fitur real-time tracking dan sistem rating pengguna."
   },
   {
     id: 5,
-    title: "Digital Learning Platform",
+    title: "Learning Management System",
     category: "Website",
-    image: "/portfolio-5.jpg",
-    description: "Platform pembelajaran online dengan fitur video streaming, quiz, dan sertifikasi."
+    image: "https://picsum.photos/seed/lms/600/400",
+    description: "Platform pembelajaran online dengan fitur video conference dan manajemen materi pembelajaran."
   },
   {
     id: 6,
-    title: "Restaurant Booking App",
+    title: "Fitness Tracking App",
     category: "Mobile App",
-    image: "/portfolio-6.jpg",
-    description: "Aplikasi booking restoran dengan fitur reservasi real-time dan menu digital."
+    image: "https://picsum.photos/seed/fitness/600/400",
+    description: "Aplikasi tracking kebugaran dengan integrasi wearable devices dan analisis data kesehatan."
   }
 ];
 
@@ -54,18 +54,15 @@ export default function Portfolio() {
   const categories = ["All", "Website", "Mobile App", "Design", "AI"];
   
   const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+    ? portfolios 
+    : portfolios.filter(project => project.category === filter);
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
+        <div 
+          className="max-w-4xl mx-auto text-center mb-16 animate-slide-up opacity-0"
+          style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
             Portofolio Kami
@@ -75,7 +72,7 @@ export default function Portfolio() {
             Beberapa proyek terbaik yang telah kami kerjakan
           </p>
           
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in opacity-0" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>
             {categories.map((category) => (
               <button
                 key={category}
@@ -90,21 +87,14 @@ export default function Portfolio() {
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {filteredProjects.map((project) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div
               key={project.id}
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all"
+              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all animate-fade-in opacity-0"
+              style={{ animationDelay: `${200 + index * 100}ms`, animationFillMode: "forwards" }}
             >
               <div className="relative h-60">
                 <Image
@@ -125,9 +115,9 @@ export default function Portfolio() {
                   {project.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

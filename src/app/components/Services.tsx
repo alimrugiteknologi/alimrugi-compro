@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from "framer-motion";
+import Image from "next/image";
+import Script from "next/script";
 
 // Using inline SVG icons instead of react-icons to avoid dependency issues
 const icons = {
@@ -61,66 +62,86 @@ const services = [
 ];
 
 export default function Services() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-            Layanan Kami
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 dark:text-gray-300">
-            Solusi digital komprehensif untuk membantu bisnis Anda berkembang
-          </p>
-        </motion.div>
+    <>
+      <Script
+        id="services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "position": 1,
+                "name": "Website Development",
+                "description": "Pembuatan website profesional dengan teknologi modern untuk bisnis Anda",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "PT ALIM RUGI TEKNOLOGI"
+                }
+              },
+              {
+                "@type": "Service",
+                "position": 2,
+                "name": "Mobile App Development",
+                "description": "Pengembangan aplikasi mobile native dan cross-platform untuk iOS dan Android",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "PT ALIM RUGI TEKNOLOGI"
+                }
+              },
+              {
+                "@type": "Service",
+                "position": 3,
+                "name": "Digitalisasi Bisnis",
+                "description": "Solusi digitalisasi untuk transformasi dan optimasi bisnis Anda",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "PT ALIM RUGI TEKNOLOGI"
+                }
+              }
+            ]
+          })
+        }}
+      />
+      <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-6">
+          <div 
+            className="max-w-4xl mx-auto text-center mb-16 animate-slide-up opacity-0"
+            style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
+              Layanan Kami
+            </h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-700 dark:text-gray-300">
+              Solusi digital komprehensif untuk membantu bisnis Anda berkembang
+            </p>
+          </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full"
-            >
-              <div className="mb-5 p-3 bg-blue-50 dark:bg-blue-900/30 rounded-full">
-                {service.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full animate-fade-in opacity-0"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards" }}
+              >
+                <div className="mb-5 p-3 bg-blue-50 dark:bg-blue-900/30 rounded-full">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 flex-grow">
+                  {service.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 flex-grow">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 } 
