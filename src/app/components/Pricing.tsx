@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 // Inline SVG icon instead of react-icons
 const CheckIcon = ({ className = "" }) => (
@@ -79,12 +78,9 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-16"
+        <div 
+          className="max-w-4xl mx-auto text-center mb-16 animate-slide-up opacity-0"
+          style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
             Paket Harga
@@ -94,7 +90,7 @@ export default function Pricing() {
             Pilih paket yang sesuai dengan kebutuhan bisnis Anda
           </p>
           
-          <div className="flex items-center justify-center mb-12">
+          <div className="flex items-center justify-center mb-12 animate-fade-in opacity-0" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>
             <span className={`mr-3 ${yearlyBilling ? 'text-gray-500' : 'text-gray-900 dark:text-white font-medium'}`}>
               Bulanan
             </span>
@@ -114,21 +110,18 @@ export default function Pricing() {
               Tahunan <span className="text-green-600 text-xs font-semibold">Save 20%</span>
             </span>
           </div>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricingPlans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all ${
+              className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all animate-fade-in opacity-0 ${
                 plan.highlight 
                   ? 'border-2 border-blue-600 dark:border-blue-500 scale-105 z-10' 
                   : 'border border-gray-200 dark:border-gray-700'
               }`}
+              style={{ animationDelay: `${200 + index * 100}ms`, animationFillMode: "forwards" }}
             >
               {plan.highlight && (
                 <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center text-sm py-1 font-medium">
@@ -173,7 +166,7 @@ export default function Pricing() {
                   Pilih Paket
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
