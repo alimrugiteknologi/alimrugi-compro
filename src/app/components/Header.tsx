@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Script from "next/script";
 import idLocale from '../locales/id.json';
@@ -19,7 +20,6 @@ interface MobileNavLinkProps extends NavLinkProps {
 
 interface HeaderProps {
   lang: string;
-  setLang: (lang: string) => void;
   darkMode: boolean;
   setDarkMode: (dark: boolean) => void;
 }
@@ -30,7 +30,9 @@ const LANGUAGES = [
   { code: 'ms', label: 'Malaysia', flag: '🇲🇾' },
 ];
 
-export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderProps) {
+export default function Header({ lang, darkMode, setDarkMode }: HeaderProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -165,7 +167,12 @@ export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderP
                     {LANGUAGES.map(option => (
                       <li key={option.code}>
                         <button
-                          onClick={() => { setLang(option.code); setDropdownOpen(false); }}
+                          onClick={() => {
+                            setDropdownOpen(false);
+                            if (option.code !== lang) {
+                              router.push(`/${option.code}`);
+                            }
+                          }}
                           className={`flex items-center w-full px-4 py-2 text-left rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 ${lang === option.code ? 'bg-blue-100 dark:bg-blue-900 font-semibold text-blue-900 dark:text-blue-100' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100'}`}
                           role="option"
                           aria-selected={lang === option.code}
@@ -275,7 +282,12 @@ export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderP
                 {LANGUAGES.map((option) => (
                   <button
                     key={option.code}
-                    onClick={() => { setLang(option.code); setMobileMenuOpen(false); }}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      if (option.code !== lang) {
+                        router.push(`/${option.code}`);
+                      }
+                    }}
                     className={`flex items-center w-full px-2 py-3 transition-all text-left focus:outline-none focus:ring-2 focus:ring-blue-500 relative ${lang === option.code ? 'text-blue-600 font-bold' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
                     aria-selected={lang === option.code}
                     type="button"
