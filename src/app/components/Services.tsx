@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 // Using inline SVG icons instead of react-icons to avoid dependency issues
 const icons = {
@@ -33,35 +36,15 @@ const icons = {
   )
 };
 
-const services = [
-  {
-    icon: icons.code("w-10 h-10 text-blue-600"),
-    title: "Website Development",
-    description: "Kami membangun website responsif dan modern yang merepresentasikan bisnis Anda dengan optimal di dunia digital."
-  },
-  {
-    icon: icons.mobile("w-10 h-10 text-blue-600"),
-    title: "Aplikasi Mobile",
-    description: "Solusi aplikasi mobile iOS dan Android yang disesuaikan dengan kebutuhan dan target pengguna Anda."
-  },
-  {
-    icon: icons.paintBrush("w-10 h-10 text-blue-600"),
-    title: "Desain Grafis",
-    description: "Layanan desain grafis profesional untuk branding, marketing materials, dan kebutuhan visual bisnis Anda."
-  },
-  {
-    icon: icons.robot("w-10 h-10 text-blue-600"),
-    title: "Solusi AI & Otomasi",
-    description: "Implementasi kecerdasan buatan untuk mengoptimalkan proses bisnis dan meningkatkan efisiensi operasional."
-  },
-  {
-    icon: icons.laptopCode("w-10 h-10 text-blue-600"),
-    title: "Pelatihan IT",
-    description: "Program pelatihan IT yang dirancang khusus untuk meningkatkan kemampuan digital tim Anda."
-  }
-];
-
-export default function Services() {
+export default function Services({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
+  const serviceIcons = [
+    icons.code("w-10 h-10 text-blue-600"),
+    icons.mobile("w-10 h-10 text-blue-600"),
+    icons.paintBrush("w-10 h-10 text-blue-600"),
+    icons.robot("w-10 h-10 text-blue-600"),
+    icons.laptopCode("w-10 h-10 text-blue-600"),
+  ];
   return (
     <>
       <Script
@@ -71,38 +54,16 @@ export default function Services() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "itemListElement": [
-              {
-                "@type": "Service",
-                "position": 1,
-                "name": "Website Development",
-                "description": "Pembuatan website profesional dengan teknologi modern untuk bisnis Anda",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "PT ALIM RUGI TEKNOLOGI"
-                }
-              },
-              {
-                "@type": "Service",
-                "position": 2,
-                "name": "Mobile App Development",
-                "description": "Pengembangan aplikasi mobile native dan cross-platform untuk iOS dan Android",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "PT ALIM RUGI TEKNOLOGI"
-                }
-              },
-              {
-                "@type": "Service",
-                "position": 3,
-                "name": "Digitalisasi Bisnis",
-                "description": "Solusi digitalisasi untuk transformasi dan optimasi bisnis Anda",
-                "provider": {
-                  "@type": "Organization",
-                  "name": "PT ALIM RUGI TEKNOLOGI"
-                }
+            "itemListElement": locale.services.list.map((item: any, idx: number) => ({
+              "@type": "Service",
+              "position": idx + 1,
+              "name": item.title,
+              "description": item.desc,
+              "provider": {
+                "@type": "Organization",
+                "name": "PT ALIM RUGI TEKNOLOGI"
               }
-            ]
+            }))
           })
         }}
       />
@@ -113,29 +74,29 @@ export default function Services() {
             style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-              Layanan Kami
+              {locale.services.title}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Solusi digital komprehensif untuk membantu bisnis Anda berkembang
+              {locale.services.desc}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {locale.services.list.map((service: any, index: number) => (
               <div
                 key={index}
                 className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full animate-fade-in opacity-0"
                 style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards" }}
               >
                 <div className="mb-5 p-3 bg-blue-50 dark:bg-blue-900/30 rounded-full">
-                  {service.icon}
+                  {serviceIcons[index]}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 flex-grow">
-                  {service.description}
+                  {service.desc}
                 </p>
               </div>
             ))}

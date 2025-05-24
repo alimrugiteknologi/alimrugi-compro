@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
-export default function Hero() {
+export default function Hero({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   return (
     <>
       <Script
@@ -79,7 +83,7 @@ export default function Hero() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 dark:text-blue-100 mb-6 leading-tight animate-slide-up opacity-0"
               style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
             >
-              Transformasi Bisnis Anda ke Dunia Digital!
+              {locale.hero.title}
             </h1>
             
             {/* Subheadline */}
@@ -87,7 +91,7 @@ export default function Hero() {
               className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10 animate-slide-up opacity-0"
               style={{ animationDelay: "200ms", animationFillMode: "forwards" }}
             >
-              Solusi Digitalisasi bisnis yang Inovatif, Cepat, dan Terjangkau.
+              {locale.hero.subtitle}
             </p>
             
             {/* CTA Buttons */}
@@ -99,13 +103,13 @@ export default function Hero() {
                 href="#contact" 
                 className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                Konsultasi Gratis
+                {locale.hero.cta_consult}
               </a>
               <a 
                 href="#services" 
                 className="px-8 py-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-300 font-medium rounded-full border border-blue-600 dark:border-blue-400 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1"
               >
-                Lihat Layanan
+                {locale.hero.cta_services}
               </a>
             </div>
           </div>

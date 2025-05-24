@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 const portfolios = [
   {
@@ -49,9 +52,10 @@ const portfolios = [
   }
 ];
 
-export default function Portfolio() {
+export default function Portfolio({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   const [filter, setFilter] = useState("All");
-  const categories = ["All", "Website", "Mobile App", "Design", "AI"];
+  const categories = [locale.portfolio.all, "Website", "Mobile App", "Design", "AI"];
   
   const filteredProjects = filter === "All" 
     ? portfolios 
@@ -65,11 +69,11 @@ export default function Portfolio() {
           style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-            Portofolio Kami
+            {locale.portfolio.title}
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-10">
-            Beberapa proyek terbaik yang telah kami kerjakan
+            {locale.portfolio.desc}
           </p>
           
           <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in opacity-0" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>

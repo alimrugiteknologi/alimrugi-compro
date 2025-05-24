@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 const testimonials = [
   {
@@ -28,7 +31,8 @@ const testimonials = [
   }
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   const [active, setActive] = useState(0);
   
   useEffect(() => {
@@ -115,7 +119,7 @@ export default function Testimonials() {
             style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-              Testimoni Klien
+              {locale.testimonials.title}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>

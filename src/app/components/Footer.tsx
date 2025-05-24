@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 // Using inline SVG icons instead of react-icons to avoid dependency issues
 const socialIcons = {
@@ -61,7 +64,8 @@ const socialIcons = {
   ),
 };
 
-export default function Footer() {
+export default function Footer({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -81,10 +85,7 @@ export default function Footer() {
                 sizes="120px"
               />
             </div>
-            <p className="text-gray-400 mb-6">
-              Mitra teknologi terpercaya untuk solusi digital modern yang
-              membantu bisnis Anda berkembang.
-            </p>
+            <p className="text-gray-400 mb-6">{locale.footer.company_desc}</p>
             <div className="flex space-x-4">
               <a
                 href="https://facebook.com"
@@ -136,60 +137,60 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-6 text-white">Navigasi</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{locale.footer.navigation}</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Kembali ke beranda"
+                  aria-label={locale.header.home}
                 >
-                  Beranda
+                  {locale.header.home}
                 </a>
               </li>
               <li>
                 <a
                   href="#about"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Tentang PT ALIM RUGI TEKNOLOGI"
+                  aria-label={locale.header.about}
                 >
-                  Tentang Kami
+                  {locale.header.about}
                 </a>
               </li>
               <li>
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Layanan yang kami tawarkan"
+                  aria-label={locale.header.services}
                 >
-                  Layanan
+                  {locale.header.services}
                 </a>
               </li>
               <li>
                 <a
                   href="#portfolio"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Portofolio proyek kami"
+                  aria-label={locale.header.portfolio}
                 >
-                  Portofolio
+                  {locale.header.portfolio}
                 </a>
               </li>
               <li>
                 <a
                   href="#pricing"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Daftar harga layanan"
+                  aria-label={locale.header.pricing}
                 >
-                  Harga
+                  {locale.header.pricing}
                 </a>
               </li>
               <li>
                 <a
                   href="#contact"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Hubungi kami"
+                  aria-label={locale.header.contact}
                 >
-                  Kontak
+                  {locale.header.contact}
                 </a>
               </li>
             </ul>
@@ -197,13 +198,13 @@ export default function Footer() {
 
           {/* Services */}
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-6 text-white">Layanan Kami</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{locale.footer.services}</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Layanan pembuatan website"
+                  aria-label="Website Development"
                 >
                   Website Development
                 </a>
@@ -212,7 +213,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Layanan pembuatan aplikasi mobile"
+                  aria-label="Mobile App Development"
                 >
                   Mobile App Development
                 </a>
@@ -221,7 +222,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Layanan desain grafis"
+                  aria-label="Graphic Design"
                 >
                   Graphic Design
                 </a>
@@ -230,7 +231,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Solusi dan teknologi AI"
+                  aria-label="AI Solutions"
                 >
                   AI Solutions
                 </a>
@@ -239,7 +240,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   className="text-gray-400 hover:text-white transition-colors"
-                  aria-label="Pelatihan IT profesional"
+                  aria-label="IT Training"
                 >
                   IT Training
                 </a>
@@ -249,7 +250,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-6 text-white">Kontak</h3>
+            <h3 className="text-lg font-bold mb-6 text-white">{locale.footer.contact}</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
                 KP. Karamat RT 003 RW 010, Desa Ciherang, Kecamatan Cianjur,
@@ -280,22 +281,22 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} PT ALIM RUGI TEKNOLOGI. All rights reserved.
+              &copy; {currentYear} PT ALIM RUGI TEKNOLOGI. {locale.footer.copyright}
             </p>
             <div className="flex space-x-6">
               <a
                 href="#terms"
                 className="text-sm text-gray-400 hover:text-white transition-colors"
-                aria-label="Baca Syarat dan Ketentuan"
+                aria-label={locale.footer.terms}
               >
-                Syarat dan Ketentuan
+                {locale.footer.terms}
               </a>
               <a
                 href="#privacy"
                 className="text-sm text-gray-400 hover:text-white transition-colors"
-                aria-label="Baca Kebijakan Privasi"
+                aria-label={locale.footer.privacy}
               >
-                Kebijakan Privasi
+                {locale.footer.privacy}
               </a>
             </div>
           </div>

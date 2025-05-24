@@ -1,0 +1,160 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "language": "Language",
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode"
+  },
+  "hero": {
+    "title": "Trusted Digital Solutions in Indonesia",
+    "subtitle": "Transform your business with innovative website, mobile app, and digitalization solutions.",
+    "cta_consult": "Free Consultation",
+    "cta_services": "See Services"
+  },
+  "about": {
+    "title": "About Us",
+    "headline": "Helping Your Business Grow in the Digital Era",
+    "desc1": "PT ALIM RUGI TEKNOLOGI is a trusted digital partner that has helped many businesses with digital transformation. With our team's experience and expertise, we provide the right digital solutions for your specific business needs.",
+    "desc2": "We are here to help your business grow through innovative, efficient, and affordable digital technology. Our team consists of experienced professionals committed to delivering the best solutions.",
+    "cta": "Our Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "desc": "Comprehensive digital solutions to help your business grow",
+    "list": [
+      {
+        "title": "Website Development",
+        "desc": "We build responsive and modern websites that optimally represent your business in the digital world."
+      },
+      {
+        "title": "Mobile App Development",
+        "desc": "iOS and Android mobile app solutions tailored to your needs and target users."
+      },
+      {
+        "title": "Graphic Design",
+        "desc": "Professional graphic design services for branding, marketing materials, and your business's visual needs."
+      },
+      {
+        "title": "AI & Automation Solutions",
+        "desc": "Implementing artificial intelligence to optimize business processes and increase operational efficiency."
+      },
+      {
+        "title": "IT Training",
+        "desc": "IT training programs specially designed to enhance your team's digital skills."
+      }
+    ]
+  },
+  "whyus": {
+    "title": "Why Choose Us?",
+    "reasons": [
+      {
+        "title": "Experienced",
+        "desc": "Our expert team has extensive experience in developing digital solutions for various industries."
+      },
+      {
+        "title": "Innovative",
+        "desc": "We always keep up with the latest technology to provide leading solutions for our clients."
+      },
+      {
+        "title": "Competitive Pricing",
+        "desc": "We offer high-quality services at affordable and transparent prices."
+      },
+      {
+        "title": "Complete Services",
+        "desc": "From initial consultation to maintenance, we provide end-to-end solutions for your digital needs."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "desc": "Some of the best projects we have worked on",
+    "all": "All"
+  },
+  "testimonials": {
+    "title": "Client Testimonials"
+  },
+  "pricing": {
+    "title": "Pricing Packages",
+    "desc": "Choose the package that suits your business needs",
+    "per_project": "/project",
+    "choose": "Choose Package",
+    "most_popular": "Most Popular",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "$60",
+        "desc": "Landing page with template design, perfect for new businesses wanting to go online quickly and affordably.",
+        "features": [
+          "Template website design/provided",
+          "Static data (no menu for data changes)",
+          "Custom Domain 1 year",
+          "Revision (as per scope)",
+          "2 days delivery",
+          "SEO Friendly"
+        ]
+      },
+      {
+        "name": "Platinum",
+        "price": "$240",
+        "desc": "Custom landing page with hosting & domain, unlimited revisions, fast delivery.",
+        "features": [
+          "Custom website design",
+          "Static data (no menu for data changes)",
+          "Hosting and Domain 1 year",
+          "Unlimited Revisions (as per scope)",
+          "2-7 days delivery",
+          "SEO Friendly"
+        ]
+      },
+      {
+        "name": "Gold",
+        "price": "$800",
+        "desc": "Custom landing page + admin dashboard, dynamic data, unlimited revisions, hosting & domain.",
+        "features": [
+          "Custom website design",
+          "Admin dashboard",
+          "Dynamic data (menu to change and add data)",
+          "Hosting and Domain 1 year",
+          "Unlimited Revisions (as per scope)",
+          "2-7 days delivery",
+          "SEO Friendly"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "desc": "Contact us for consultation and more information about our digital services",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "address": "Address",
+    "phone_label": "Phone",
+    "email_label": "Email",
+    "whatsapp": "WhatsApp",
+    "operational_hours": "Operational Hours",
+    "monday_friday": "Monday - Friday:",
+    "saturday": "Saturday:",
+    "sunday": "Sunday:",
+    "closed": "Closed"
+  },
+  "footer": {
+    "company_desc": "Your trusted technology partner for modern digital solutions to help your business grow.",
+    "navigation": "Navigation",
+    "services": "Our Services",
+    "contact": "Contact",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "copyright": "All rights reserved."
+  }
+} 

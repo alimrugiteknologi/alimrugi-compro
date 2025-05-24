@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from "react";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 // Inline SVG icon instead of react-icons
 const CheckIcon = ({ className = "" }) => (
@@ -9,72 +12,9 @@ const CheckIcon = ({ className = "" }) => (
   </svg>
 );
 
-const pricingPlans = [
-  {
-    id: "basic",
-    name: "Basic",
-    price: {
-      monthly: "5.900K",
-      yearly: "59.900K",
-    },
-    description: "Solusi dasar untuk bisnis kecil yang baru memulai",
-    features: [
-      "1 Website Profesional",
-      "Desain Responsif",
-      "Domain (.com/.id) Gratis",
-      "Hosting 1 Tahun",
-      "5 Email Bisnis",
-      "Support 3 Bulan",
-    ],
-    highlight: false,
-  },
-  {
-    id: "standard",
-    name: "Standard",
-    price: {
-      monthly: "9.900K",
-      yearly: "99.900K",
-    },
-    description: "Pilihan terbaik untuk bisnis yang ingin berkembang",
-    features: [
-      "Website Profesional + CMS",
-      "Desain Premium & Responsif",
-      "Domain (.com/.id) Gratis",
-      "Hosting 1 Tahun (Unlimited)",
-      "10 Email Bisnis",
-      "Support 6 Bulan",
-      "SEO Optimization Basic",
-      "Integrasi Sosial Media"
-    ],
-    highlight: true,
-  },
-  {
-    id: "premium",
-    name: "Premium",
-    price: {
-      monthly: "19.900K",
-      yearly: "199.900K",
-    },
-    description: "Paket lengkap untuk perusahaan dengan kebutuhan kompleks",
-    features: [
-      "Website Profesional + CMS Custom",
-      "Desain Premium & Responsif",
-      "Domain (.com/.id) Gratis",
-      "Hosting 1 Tahun (Unlimited)",
-      "Email Bisnis Unlimited",
-      "Support 12 Bulan",
-      "SEO Optimization Advanced",
-      "Integrasi Sosial Media",
-      "Integrasi Payment Gateway",
-      "Marketing Digital Consultation"
-    ],
-    highlight: false,
-  }
-];
-
-export default function Pricing() {
-  const [yearlyBilling, setYearlyBilling] = useState(false);
-
+export default function Pricing({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
+  const pricingPlans = locale.pricing.plans;
   return (
     <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
@@ -83,50 +23,26 @@ export default function Pricing() {
           style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-            Paket Harga
+            {locale.pricing.title}
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-10">
-            Pilih paket yang sesuai dengan kebutuhan bisnis Anda
+            {locale.pricing.desc}
           </p>
-          
-          <div className="flex items-center justify-center mb-12 animate-fade-in opacity-0" style={{ animationDelay: "100ms", animationFillMode: "forwards" }}>
-            <span className={`mr-3 ${yearlyBilling ? 'text-gray-500' : 'text-gray-900 dark:text-white font-medium'}`}>
-              Bulanan
-            </span>
-            <button 
-              onClick={() => setYearlyBilling(!yearlyBilling)}
-              className="relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500"
-              role="switch"
-              aria-checked={yearlyBilling}
-              aria-label={yearlyBilling ? "Switch to monthly billing" : "Switch to yearly billing"}
-            >
-              <span 
-                className={`pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                  yearlyBilling ? 'translate-x-6' : 'translate-x-0'
-                }`} 
-              />
-            </button>
-            <span className={`ml-3 ${yearlyBilling ? 'text-gray-900 dark:text-white font-medium' : 'text-gray-500'}`}>
-              Tahunan <span className="text-green-800 dark:text-green-400 text-xs font-semibold">Hemat 20%</span>
-            </span>
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <div
-              key={plan.id}
+              key={plan.name}
               className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all animate-fade-in opacity-0 ${
-                plan.highlight 
-                  ? 'border-2 border-blue-600 dark:border-blue-500 scale-105 z-10' 
-                  : 'border border-gray-200 dark:border-gray-700'
+                index === 1 ? 'border-2 border-blue-600 dark:border-blue-500 scale-105 z-10' : 'border border-gray-200 dark:border-gray-700'
               }`}
               style={{ animationDelay: `${200 + index * 100}ms`, animationFillMode: "forwards" }}
             >
-              {plan.highlight && (
+              {index === 1 && (
                 <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center text-sm py-1 font-medium">
-                  Paling Populer
+                  {locale.pricing.most_popular}
                 </div>
               )}
               
@@ -135,20 +51,20 @@ export default function Pricing() {
                   {plan.name}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6 flex-grow">
-                  {plan.description}
+                  {plan.desc}
                 </p>
                 
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                    Rp {yearlyBilling ? plan.price.yearly : plan.price.monthly}
+                    {plan.price}
                   </span>
                   <span className="text-gray-500 dark:text-gray-400">
-                    /{yearlyBilling ? 'tahun' : 'bulan'}
+                    {locale.pricing.per_project}
                   </span>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, idx) => (
+                  {plan.features.map((feature: string, idx: number) => (
                     <li key={idx} className="flex items-start">
                       <CheckIcon className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700 dark:text-gray-300">{feature}</span>
@@ -159,12 +75,12 @@ export default function Pricing() {
                 <a
                   href="#contact"
                   className={`w-full text-center py-3 px-4 rounded-lg font-medium transition-all ${
-                    plan.highlight
+                    index === 1
                       ? 'bg-blue-600 hover:bg-blue-700 text-white'
                       : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white'
                   }`}
                 >
-                  Pilih Paket
+                  {locale.pricing.choose}
                 </a>
               </div>
             </div>
