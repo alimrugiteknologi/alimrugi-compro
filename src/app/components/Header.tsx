@@ -25,9 +25,9 @@ interface HeaderProps {
 }
 
 const LANGUAGES = [
-  { code: 'id', label: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'id', label: 'Indonesia', flag: '🇮🇩' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'ms', label: 'Bahasa Malaysia', flag: '🇲🇾' },
+  { code: 'ms', label: 'Malaysia', flag: '🇲🇾' },
 ];
 
 export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderProps) {
@@ -115,7 +115,11 @@ export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderP
         }}
       />
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-gray-900 shadow-md py-2"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white dark:bg-gray-900 shadow-md'
+            : 'bg-transparent'
+        } py-2`}
       >
         <div className="container mx-auto px-6 py-1">
           <div className="flex items-center justify-between">
@@ -132,7 +136,7 @@ export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderP
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <NavLink href="#" label={locale.header.home} isScrolled={isScrolled} />
+              {/* <NavLink href="#" label={locale.header.home} isScrolled={isScrolled} /> */}
               <NavLink href="#about" label={locale.header.about} isScrolled={isScrolled} />
               <NavLink href="#services" label={locale.header.services} isScrolled={isScrolled} />
               <NavLink href="#portfolio" label={locale.header.portfolio} isScrolled={isScrolled} />
@@ -247,7 +251,7 @@ export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderP
             <div className="absolute top-0 left-0 w-full h-full bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 shadow-xl transition-all duration-300 z-0"></div>
             <nav className="relative flex flex-col divide-y divide-gray-200 dark:divide-gray-700 mb-2 z-10 px-2 pt-20 text-gray-900 dark:text-gray-100">
               {[
-                { href: '#', label: locale.header.home },
+                // { href: '#', label: locale.header.home },
                 { href: '#about', label: locale.header.about },
                 { href: '#services', label: locale.header.services },
                 { href: '#portfolio', label: locale.header.portfolio },
