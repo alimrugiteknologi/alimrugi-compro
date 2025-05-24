@@ -6,6 +6,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import WhyUs from "./components/WhyUs";
 import dynamic from "next/dynamic";
+import PartnersCarousel from "./components/Partners";
 
 const Portfolio = dynamic(() => import("./components/Portfolio"), { loading: () => <div>Loading Portofolio...</div> });
 const Testimonials = dynamic(() => import("./components/Testimonials"), { loading: () => <div>Loading Testimoni...</div> });
@@ -40,7 +41,8 @@ export default function Home() {
       <About lang={lang} />
       <Services lang={lang} />
       <WhyUs lang={lang} />
-      <Portfolio lang={lang} />
+      {/* <Portfolio lang={lang} /> */}
+      {/* <PartnersCarousel lang={lang} /> */}
       <Testimonials lang={lang} />
       <Pricing lang={lang} />
       <Contact lang={lang} />
