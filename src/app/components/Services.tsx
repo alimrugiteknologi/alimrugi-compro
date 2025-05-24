@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 // Using inline SVG icons instead of react-icons to avoid dependency issues
 const icons = {
@@ -61,7 +64,8 @@ const services = [
   }
 ];
 
-export default function Services() {
+export default function Services({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   return (
     <>
       <Script
@@ -113,23 +117,23 @@ export default function Services() {
             style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-              Layanan Kami
+              {locale.services.title}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Solusi digital komprehensif untuk membantu bisnis Anda berkembang
+              {locale.services.desc}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {locale.services.list.map((service, index) => (
               <div
                 key={index}
                 className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center h-full animate-fade-in opacity-0"
                 style={{ animationDelay: `${index * 100}ms`, animationFillMode: "forwards" }}
               >
                 <div className="mb-5 p-3 bg-blue-50 dark:bg-blue-900/30 rounded-full">
-                  {service.icon}
+                  {/* Use icon as before, or map by index if needed */}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {service.title}

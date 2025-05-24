@@ -1,0 +1,160 @@
+{
+  "header": {
+    "home": "Laman Utama",
+    "about": "Tentang Kami",
+    "services": "Perkhidmatan",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimoni",
+    "contact": "Hubungi",
+    "pricing": "Harga",
+    "language": "Bahasa",
+    "dark_mode": "Mod Gelap",
+    "light_mode": "Mod Cerah"
+  },
+  "hero": {
+    "title": "Penyelesaian Digital Dipercayai di Malaysia",
+    "subtitle": "Transformasi perniagaan anda dengan laman web, aplikasi mudah alih, dan penyelesaian digital yang inovatif.",
+    "cta_consult": "Konsultasi Percuma",
+    "cta_services": "Lihat Perkhidmatan"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "headline": "Membantu Perniagaan Anda Berkembang di Era Digital",
+    "desc1": "PT ALIM RUGI TEKNOLOGI ialah rakan digital dipercayai yang telah membantu banyak perniagaan dalam transformasi digital. Dengan pengalaman dan kepakaran pasukan kami, kami menyediakan penyelesaian digital yang tepat untuk keperluan khusus perniagaan anda.",
+    "desc2": "Kami hadir untuk membantu perniagaan anda berkembang melalui teknologi digital yang inovatif, cekap, dan berpatutan. Pasukan kami terdiri daripada profesional berpengalaman yang komited untuk memberikan penyelesaian terbaik.",
+    "cta": "Perkhidmatan Kami"
+  },
+  "services": {
+    "title": "Perkhidmatan Kami",
+    "desc": "Penyelesaian digital menyeluruh untuk membantu perniagaan anda berkembang",
+    "list": [
+      {
+        "title": "Pembangunan Laman Web",
+        "desc": "Kami membina laman web responsif dan moden yang mewakili perniagaan anda secara optimum di dunia digital."
+      },
+      {
+        "title": "Pembangunan Aplikasi Mudah Alih",
+        "desc": "Penyelesaian aplikasi mudah alih iOS dan Android yang disesuaikan dengan keperluan dan sasaran pengguna anda."
+      },
+      {
+        "title": "Reka Bentuk Grafik",
+        "desc": "Perkhidmatan reka bentuk grafik profesional untuk penjenamaan, bahan pemasaran, dan keperluan visual perniagaan anda."
+      },
+      {
+        "title": "Penyelesaian AI & Automasi",
+        "desc": "Pelaksanaan kecerdasan buatan untuk mengoptimumkan proses perniagaan dan meningkatkan kecekapan operasi."
+      },
+      {
+        "title": "Latihan IT",
+        "desc": "Program latihan IT yang direka khas untuk meningkatkan kemahiran digital pasukan anda."
+      }
+    ]
+  },
+  "whyus": {
+    "title": "Kenapa Pilih Kami?",
+    "reasons": [
+      {
+        "title": "Berpengalaman",
+        "desc": "Pasukan pakar kami mempunyai pengalaman luas dalam membangunkan penyelesaian digital untuk pelbagai industri."
+      },
+      {
+        "title": "Inovatif",
+        "desc": "Kami sentiasa mengikuti perkembangan teknologi terkini untuk memberikan penyelesaian terbaik kepada pelanggan kami."
+      },
+      {
+        "title": "Harga Kompetitif",
+        "desc": "Kami menawarkan perkhidmatan berkualiti tinggi dengan harga yang berpatutan dan telus."
+      },
+      {
+        "title": "Perkhidmatan Lengkap",
+        "desc": "Dari konsultasi awal hingga penyelenggaraan, kami menyediakan penyelesaian menyeluruh untuk keperluan digital anda."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portfolio Kami",
+    "desc": "Beberapa projek terbaik yang telah kami jayakan",
+    "all": "Semua"
+  },
+  "testimonials": {
+    "title": "Testimoni Pelanggan"
+  },
+  "pricing": {
+    "title": "Pakej Harga",
+    "desc": "Pilih pakej yang sesuai dengan keperluan perniagaan anda",
+    "per_project": "/projek",
+    "choose": "Pilih Pakej",
+    "most_popular": "Paling Popular",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "RM280",
+        "desc": "Laman web landing dengan reka bentuk template, sesuai untuk perniagaan baru yang ingin online dengan cepat dan jimat.",
+        "features": [
+          "Reka bentuk laman web template/sudah disediakan",
+          "Data statik (tiada menu untuk perubahan data)",
+          "Domain Custom 1 tahun",
+          "Revisi (Mengikut skop)",
+          "Siap dalam 2 hari",
+          "Mesra SEO"
+        ]
+      },
+      {
+        "name": "Platinum",
+        "price": "RM1,200",
+        "desc": "Laman web landing custom dengan hosting & domain, revisi tanpa had, siap cepat.",
+        "features": [
+          "Reka bentuk laman web custom",
+          "Data statik (tiada menu untuk perubahan data)",
+          "Hosting dan Domain 1 tahun",
+          "Revisi Tanpa Had (Mengikut skop)",
+          "Siap dalam 2-7 hari",
+          "Mesra SEO"
+        ]
+      },
+      {
+        "name": "Gold",
+        "price": "RM4,000",
+        "desc": "Laman web landing custom + dashboard admin, data dinamik, revisi tanpa had, hosting & domain.",
+        "features": [
+          "Reka bentuk laman web custom",
+          "Dashboard admin",
+          "Data dinamik (ada menu untuk ubah dan tambah data)",
+          "Hosting dan Domain 1 tahun",
+          "Revisi Tanpa Had (Mengikut skop)",
+          "Siap dalam 2-7 hari",
+          "Mesra SEO"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hubungi",
+    "desc": "Hubungi kami untuk konsultasi dan maklumat lanjut tentang perkhidmatan digital kami",
+    "name": "Nama",
+    "email": "Emel",
+    "phone": "No. Telefon",
+    "subject": "Subjek",
+    "message": "Mesej",
+    "send": "Hantar Mesej",
+    "sending": "Menghantar...",
+    "address": "Alamat",
+    "phone_label": "Telefon",
+    "email_label": "Emel",
+    "whatsapp": "WhatsApp",
+    "operational_hours": "Waktu Operasi",
+    "monday_friday": "Isnin - Jumaat:",
+    "saturday": "Sabtu:",
+    "sunday": "Ahad:",
+    "closed": "Tutup"
+  },
+  "footer": {
+    "company_desc": "Rakan teknologi dipercayai anda untuk penyelesaian digital moden yang membantu perniagaan anda berkembang.",
+    "navigation": "Navigasi",
+    "services": "Perkhidmatan Kami",
+    "contact": "Hubungi",
+    "terms": "Terma dan Syarat",
+    "privacy": "Dasar Privasi",
+    "copyright": "Hak cipta terpelihara."
+  }
+} 

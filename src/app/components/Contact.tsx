@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 // Inline SVG icons instead of react-icons
 const icons = {
@@ -71,7 +74,8 @@ interface ChangeEvent {
   };
 }
 
-export default function Contact() {
+export default function Contact({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -181,11 +185,11 @@ ${formData.message}`;
             className="max-w-4xl mx-auto text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-              Hubungi Kami
+              {locale.contact.title}
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Konsultasikan kebutuhan digital Anda dengan tim ahli kami
+              {locale.contact.desc}
             </p>
           </motion.div>
 
@@ -198,14 +202,13 @@ ${formData.message}`;
               className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg"
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Kirim Pesan
+                {locale.contact.title}
               </h3>
 
               {submitted ? (
                 <div className="bg-green-100 dark:bg-green-800 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-200 px-4 py-3 rounded relative mb-6">
                   <p>
-                    Terima kasih! Pesan Anda telah kami terima. Tim kami akan
-                    segera menghubungi Anda.
+                    {locale.contact.desc}
                   </p>
                 </div>
               ) : null}
@@ -216,7 +219,7 @@ ${formData.message}`;
                     htmlFor="name"
                     className="block text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Nama Lengkap
+                    {locale.contact.name}
                   </label>
                   <input
                     type="text"
@@ -226,7 +229,7 @@ ${formData.message}`;
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
-                    placeholder="Masukkan nama lengkap"
+                    placeholder={locale.contact.name}
                   />
                 </div>
 
@@ -235,7 +238,7 @@ ${formData.message}`;
                     htmlFor="email"
                     className="block text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Email
+                    {locale.contact.email}
                   </label>
                   <input
                     type="email"
@@ -245,7 +248,7 @@ ${formData.message}`;
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
-                    placeholder="Masukkan email"
+                    placeholder={locale.contact.email}
                   />
                 </div>
 
@@ -254,7 +257,7 @@ ${formData.message}`;
                     htmlFor="phone"
                     className="block text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    No. Telepon
+                    {locale.contact.phone}
                   </label>
                   <input
                     type="tel"
@@ -264,7 +267,7 @@ ${formData.message}`;
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
-                    placeholder="Masukkan nomor telepon"
+                    placeholder={locale.contact.phone}
                   />
                 </div>
 
@@ -273,7 +276,7 @@ ${formData.message}`;
                     htmlFor="subject"
                     className="block text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Subject
+                    {locale.contact.subject}
                   </label>
                   <input
                     type="text"
@@ -283,7 +286,7 @@ ${formData.message}`;
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
-                    placeholder="Masukkan subject"
+                    placeholder={locale.contact.subject}
                   />
                 </div>
 
@@ -292,7 +295,7 @@ ${formData.message}`;
                     htmlFor="message"
                     className="block text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Pesan
+                    {locale.contact.message}
                   </label>
                   <textarea
                     id="message"
@@ -302,7 +305,7 @@ ${formData.message}`;
                     required
                     rows={5}
                     className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
-                    placeholder="Deskripsikan kebutuhan atau pertanyaan Anda"
+                    placeholder={locale.contact.message}
                   />
                 </div>
 
@@ -315,7 +318,7 @@ ${formData.message}`;
                       : "bg-blue-600 hover:bg-blue-700"
                   } transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
                 >
-                  {isSubmitting ? "Mengirim..." : "Kirim Pesan"}
+                  {isSubmitting ? locale.contact.sending : locale.contact.send}
                 </button>
               </form>
             </motion.div>
@@ -327,7 +330,7 @@ ${formData.message}`;
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Informasi Kontak
+                {locale.contact.address}
               </h3>
 
               <div className="space-y-6 mb-10">
@@ -335,7 +338,7 @@ ${formData.message}`;
                   {icons.mapMarker("text-blue-600 text-xl mr-4 mt-1")}
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                      Alamat
+                      {locale.contact.address}
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
                       KP. Karamat RT 003 RW 010, Desa Ciherang, Kecamatan
@@ -348,7 +351,7 @@ ${formData.message}`;
                   {icons.phone("text-blue-600 text-xl mr-4 mt-1")}
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                      Telepon
+                      {locale.contact.phone_label}
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
                       +62 822-1698-7541
@@ -360,7 +363,7 @@ ${formData.message}`;
                   {icons.envelope("text-blue-600 text-xl mr-4 mt-1")}
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                      Email
+                      {locale.contact.email_label}
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
                       alimrugiteknologi@gmail.com
@@ -372,7 +375,7 @@ ${formData.message}`;
                   {icons.whatsapp("text-blue-600 text-xl mr-4 mt-1")}
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                      WhatsApp
+                      {locale.contact.whatsapp}
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
                       +62 822-1698-7541
@@ -383,20 +386,20 @@ ${formData.message}`;
 
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  Jam Operasional
+                  {locale.contact.operational_hours}
                 </h4>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li className="flex justify-between">
-                    <span>Senin - Jumat:</span>
+                    <span>{locale.contact.monday_friday}:</span>
                     <span>09:00 - 17:00</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Sabtu:</span>
+                    <span>{locale.contact.saturday}:</span>
                     <span>09:00 - 15:00</span>
                   </li>
                   <li className="flex justify-between">
-                    <span>Minggu:</span>
-                    <span>Tutup</span>
+                    <span>{locale.contact.sunday}:</span>
+                    <span>{locale.contact.closed}</span>
                   </li>
                 </ul>
               </div>

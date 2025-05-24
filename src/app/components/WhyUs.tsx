@@ -1,27 +1,12 @@
 'use client';
 
 import Image from "next/image";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
-const reasons = [
-  {
-    title: "Berpengalaman",
-    description: "Tim ahli kami memiliki pengalaman luas dalam pengembangan solusi digital untuk berbagai industri."
-  },
-  {
-    title: "Inovatif",
-    description: "Kami selalu mengikuti perkembangan teknologi terbaru untuk memberikan solusi terdepan bagi klien kami."
-  },
-  {
-    title: "Harga Kompetitif",
-    description: "Kami menawarkan layanan berkualitas tinggi dengan harga yang terjangkau dan transparan."
-  },
-  {
-    title: "Layanan Lengkap",
-    description: "Dari konsultasi awal hingga maintenance, kami menyediakan solusi end-to-end untuk kebutuhan digital Anda."
-  }
-];
-
-export default function WhyUs() {
+export default function WhyUs({ lang = 'id' }: { lang?: string }) {
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
   return (
     <section className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -30,7 +15,7 @@ export default function WhyUs() {
           style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900 dark:text-blue-100 mb-4">
-            Mengapa Memilih Kami?
+            {locale.whyus.title}
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
         </div>
@@ -55,18 +40,18 @@ export default function WhyUs() {
           </div>
 
           <div className="space-y-6">
-            {reasons.map((reason, index) => (
+            {locale.whyus.reasons.map((reason, idx) => (
               <div 
-                key={index}
+                key={idx}
                 className="flex gap-4 items-start p-5 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all animate-slide-up opacity-0"
-                style={{ animationDelay: `${index * 100 + 200}ms`, animationFillMode: "forwards" }}
+                style={{ animationDelay: `${idx * 100 + 200}ms`, animationFillMode: "forwards" }}
               >
                 <div className="mt-1 bg-blue-500 text-white h-8 w-8 flex items-center justify-center rounded-full font-bold">
-                  {index + 1}
+                  {idx + 1}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{reason.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{reason.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{reason.desc}</p>
                 </div>
               </div>
             ))}

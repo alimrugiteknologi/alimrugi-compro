@@ -1,0 +1,160 @@
+{
+  "header": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "services": "Layanan",
+    "portfolio": "Portofolio",
+    "testimonials": "Testimoni",
+    "contact": "Kontak",
+    "pricing": "Harga",
+    "language": "Bahasa",
+    "dark_mode": "Mode Gelap",
+    "light_mode": "Mode Terang"
+  },
+  "hero": {
+    "title": "Solusi Digital Terpercaya di Indonesia",
+    "subtitle": "Transformasi digital bisnis Anda dengan solusi website, aplikasi mobile, dan digitalisasi yang inovatif.",
+    "cta_consult": "Konsultasi Gratis",
+    "cta_services": "Lihat Layanan"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "headline": "Membantu Bisnis Anda Berkembang di Era Digital",
+    "desc1": "PT ALIM RUGI TEKNOLOGI adalah mitra digital terpercaya yang telah membantu banyak bisnis dalam melakukan transformasi digital. Dengan pengalaman dan keahlian tim kami, kami menyediakan solusi digital yang tepat untuk kebutuhan spesifik bisnis Anda.",
+    "desc2": "Kami hadir untuk membantu bisnis Anda tumbuh melalui teknologi digital yang inovatif, efisien, dan terjangkau. Tim kami terdiri dari profesional berpengalaman yang berkomitmen untuk memberikan solusi terbaik.",
+    "cta": "Layanan Kami"
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "desc": "Solusi digital komprehensif untuk membantu bisnis Anda berkembang",
+    "list": [
+      {
+        "title": "Website Development",
+        "desc": "Kami membangun website responsif dan modern yang merepresentasikan bisnis Anda dengan optimal di dunia digital."
+      },
+      {
+        "title": "Aplikasi Mobile",
+        "desc": "Solusi aplikasi mobile iOS dan Android yang disesuaikan dengan kebutuhan dan target pengguna Anda."
+      },
+      {
+        "title": "Desain Grafis",
+        "desc": "Layanan desain grafis profesional untuk branding, marketing materials, dan kebutuhan visual bisnis Anda."
+      },
+      {
+        "title": "Solusi AI & Otomasi",
+        "desc": "Implementasi kecerdasan buatan untuk mengoptimalkan proses bisnis dan meningkatkan efisiensi operasional."
+      },
+      {
+        "title": "Pelatihan IT",
+        "desc": "Program pelatihan IT yang dirancang khusus untuk meningkatkan kemampuan digital tim Anda."
+      }
+    ]
+  },
+  "whyus": {
+    "title": "Kenapa Memilih Kami?",
+    "reasons": [
+      {
+        "title": "Berpengalaman",
+        "desc": "Tim ahli kami memiliki pengalaman luas dalam pengembangan solusi digital untuk berbagai industri."
+      },
+      {
+        "title": "Inovatif",
+        "desc": "Kami selalu mengikuti perkembangan teknologi terbaru untuk memberikan solusi terdepan bagi klien kami."
+      },
+      {
+        "title": "Harga Kompetitif",
+        "desc": "Kami menawarkan layanan berkualitas tinggi dengan harga yang terjangkau dan transparan."
+      },
+      {
+        "title": "Layanan Lengkap",
+        "desc": "Dari konsultasi awal hingga maintenance, kami menyediakan solusi end-to-end untuk kebutuhan digital Anda."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portofolio Kami",
+    "desc": "Beberapa proyek terbaik yang telah kami kerjakan",
+    "all": "Semua"
+  },
+  "testimonials": {
+    "title": "Testimoni Klien"
+  },
+  "pricing": {
+    "title": "Paket Harga",
+    "desc": "Pilih paket yang sesuai dengan kebutuhan bisnis Anda",
+    "per_project": "/proyek",
+    "choose": "Pilih Paket",
+    "most_popular": "Paling Populer",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "750K",
+        "desc": "Landing page dengan desain template, cocok untuk bisnis baru yang ingin online dengan cepat dan hemat.",
+        "features": [
+          "Desain website template/sudah disediakan",
+          "Data statis (tidak ada menu untuk perubahan data)",
+          "Custom Domain 1 thn",
+          "Revisi (Sesuai dengan scope)",
+          "Pengerjaan 2 Hari",
+          "SEO Friendly"
+        ]
+      },
+      {
+        "name": "Platinum",
+        "price": "3 Jt",
+        "desc": "Landing page custom dengan hosting & domain, revisi unlimited, pengerjaan cepat.",
+        "features": [
+          "Desain website custom",
+          "Data statis (tidak ada menu untuk perubahan data)",
+          "Hosting dan Domain 1 thn",
+          "Unlimeted Revisi (Sesuai dengan scope)",
+          "Pengerjaan 2-7 Hari",
+          "SEO Friendly"
+        ]
+      },
+      {
+        "name": "Gold",
+        "price": "9.9 Jt",
+        "desc": "Landing page custom + dashboard admin, data dinamis, revisi unlimited, hosting & domain.",
+        "features": [
+          "Desain website custom",
+          "Dashboard admin",
+          "Data dinamis (ada menu untuk merubah dan menambah data)",
+          "Hosting dan Domain 1 thn",
+          "Unlimeted Revisi (Sesuai dengan scope)",
+          "Pengerjaan 2-7 Hari",
+          "SEO Friendly"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kontak",
+    "desc": "Hubungi kami untuk konsultasi dan informasi lebih lanjut tentang layanan digital kami",
+    "name": "Nama",
+    "email": "Email",
+    "phone": "No. Telepon",
+    "subject": "Subjek",
+    "message": "Pesan",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "address": "Alamat",
+    "phone_label": "Telepon",
+    "email_label": "Email",
+    "whatsapp": "WhatsApp",
+    "operational_hours": "Jam Operasional",
+    "monday_friday": "Senin - Jumat:",
+    "saturday": "Sabtu:",
+    "sunday": "Minggu:",
+    "closed": "Tutup"
+  },
+  "footer": {
+    "company_desc": "Mitra teknologi terpercaya untuk solusi digital modern yang membantu bisnis Anda berkembang.",
+    "navigation": "Navigasi",
+    "services": "Layanan Kami",
+    "contact": "Kontak",
+    "terms": "Syarat dan Ketentuan",
+    "privacy": "Kebijakan Privasi",
+    "copyright": "All rights reserved."
+  }
+} 

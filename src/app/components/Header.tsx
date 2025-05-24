@@ -1,8 +1,11 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Script from "next/script";
+import idLocale from '../locales/id.json';
+import enLocale from '../locales/en.json';
+import msLocale from '../locales/ms.json';
 
 interface NavLinkProps {
   href: string;
@@ -14,9 +17,25 @@ interface MobileNavLinkProps extends NavLinkProps {
   onClick: () => void;
 }
 
-export default function Header() {
+interface HeaderProps {
+  lang: string;
+  setLang: (lang: string) => void;
+  darkMode: boolean;
+  setDarkMode: (dark: boolean) => void;
+}
+
+const LANGUAGES = [
+  { code: 'id', label: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'en', label: 'English', flag: '🇬🇧' },
+  { code: 'ms', label: 'Bahasa Malaysia', flag: '🇲🇾' },
+];
+
+export default function Header({ lang, setLang, darkMode, setDarkMode }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const locale = lang === 'en' ? enLocale : lang === 'ms' ? msLocale : idLocale;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,12 +45,36 @@ export default function Header() {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [dropdownOpen]);
+
+  // Dark mode toggle handler
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   return (
     <>
@@ -93,12 +136,12 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
-              <NavLink href="#" label="Beranda" isScrolled={isScrolled} />
-              <NavLink href="#about" label="Tentang Kami" isScrolled={isScrolled} />
-              <NavLink href="#services" label="Layanan" isScrolled={isScrolled} />
-              <NavLink href="#portfolio" label="Portofolio" isScrolled={isScrolled} />
-              <NavLink href="#testimonials" label="Testimoni" isScrolled={isScrolled} />
-              <NavLink href="#contact" label="Kontak" isScrolled={isScrolled} />
+              <NavLink href="#" label={locale.header.home} isScrolled={isScrolled} />
+              <NavLink href="#about" label={locale.header.about} isScrolled={isScrolled} />
+              <NavLink href="#services" label={locale.header.services} isScrolled={isScrolled} />
+              <NavLink href="#portfolio" label={locale.header.portfolio} isScrolled={isScrolled} />
+              <NavLink href="#testimonials" label={locale.header.testimonials} isScrolled={isScrolled} />
+              <NavLink href="#contact" label={locale.header.contact} isScrolled={isScrolled} />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -129,6 +172,54 @@ export default function Header() {
                 ></span>
               </div>
             </button>
+
+            {/* Language Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen((v) => !v)}
+                className="flex items-center px-3 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all min-w-[140px]"
+                aria-haspopup="listbox"
+                aria-expanded={dropdownOpen}
+                aria-label="Pilih Bahasa"
+                type="button"
+              >
+                <span className="text-xl mr-2">{LANGUAGES.find(l => l.code === lang)?.flag}</span>
+                <span className="font-medium text-gray-800 dark:text-gray-100 mr-2">{LANGUAGES.find(l => l.code === lang)?.label}</span>
+                <svg className={`w-4 h-4 ml-auto transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              {dropdownOpen && (
+                <ul className="absolute left-0 mt-2 w-full bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 py-2" role="listbox">
+                  {LANGUAGES.map(option => (
+                    <li key={option.code}>
+                      <button
+                        onClick={() => { setLang(option.code); setDropdownOpen(false); }}
+                        className={`flex items-center w-full px-4 py-2 text-left rounded-lg transition-all ${lang === option.code ? 'bg-blue-100 dark:bg-blue-800 font-semibold' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                        role="option"
+                        aria-selected={lang === option.code}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <span className="text-xl mr-3">{option.flag}</span>
+                        <span>{option.label}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={handleDarkModeToggle}
+              className="ml-2 p-2 rounded-full border border-gray-300 dark:bg-gray-800 dark:text-white"
+              aria-label={darkMode ? locale.header.light_mode : locale.header.dark_mode}
+              type="button"
+            >
+              {darkMode ? (
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
+              ) : (
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="1.5"/><path stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M6.05 6.05L4.636 4.636m12.728 0l-1.414 1.414M6.05 17.95l-1.414 1.414"/></svg>
+              )}
+            </button>
           </div>
 
           {/* Mobile Navigation */}
@@ -138,12 +229,12 @@ export default function Header() {
             }`}
           >
             <nav className="flex flex-col space-y-4">
-              <MobileNavLink href="#" label="Beranda" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
-              <MobileNavLink href="#about" label="Tentang Kami" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
-              <MobileNavLink href="#services" label="Layanan" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
-              <MobileNavLink href="#portfolio" label="Portofolio" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
-              <MobileNavLink href="#testimonials" label="Testimoni" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
-              <MobileNavLink href="#contact" label="Kontak" onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#" label={locale.header.home} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#about" label={locale.header.about} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#services" label={locale.header.services} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#portfolio" label={locale.header.portfolio} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#testimonials" label={locale.header.testimonials} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
+              <MobileNavLink href="#contact" label={locale.header.contact} onClick={() => setMobileMenuOpen(false)} isScrolled={isScrolled} />
             </nav>
           </div>
         </div>
